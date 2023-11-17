@@ -29,9 +29,48 @@ function testComputerChoice () {
             scissor_counter++;
         }
     }
-    
     console.log("Rock: " + rock_counter/10000 * 100 + "%");
     console.log("Paper: " + paper_counter/10000 * 100 + "%");
     console.log("Scissor :" + scissor_counter/10000 * 100 + "%");
 }
 
+function playRound (playerSelection, computerSelection) {
+    playerSelection = playerSelection.toUpperCase();
+    computerSelection = computerSelection.toUpperCase();
+    console.log("Player chose " + playerSelection);
+    console.log("Computer chose " + computerSelection);
+
+    if (playerSelection == "ROCK") {
+        if (computerSelection == "ROCK") {
+            return "It's a draw!";
+        }
+        else if (computerSelection == "PAPER") {
+            return "You lose! Paper beats Rock"
+        }
+        else if (computerSelection == "SCISSOR") {
+            return "You win! Rock beats Scissor"
+        }
+    }
+    else if (playerSelection == "PAPER") {
+        if (computerSelection == "ROCK") {
+            return "You win! Paper beats Rock";
+        }
+        else if (computerSelection == "PAPER") {
+            return "It's a draw!"
+        }
+        else if (computerSelection == "SCISSOR") {
+            return "You lose! Scissor beats Paper"
+        }
+    }
+    else if (playerSelection == "SCISSOR") {
+        if (computerSelection == "ROCK") {
+            return "You lose! Rock beats Scissor";
+        }
+        else if (computerSelection == "PAPER") {
+            return "You win! Scissor beats Paper"
+        }
+        else if (computerSelection == "SCISSOR") {
+            return "It's a draw!"
+        }
+    }
+}
