@@ -74,3 +74,31 @@ function playRound (playerSelection, computerSelection) {
         }
     }
 }
+
+function game() {
+    console.log("Welcome to the game of Rock Paper Scissor!")
+    let playerScore = 0;
+    let compuerScore = 0;
+    for (i=0; i<5; i++) {
+        let playerSelection = prompt("Do you choose Rock, Paper or Scissor?");
+        let computerSelection = getComputerChoice();
+        let resultMsg = playRound(playerSelection, computerSelection);
+        if (resultMsg.includes("win")) {
+            playerScore++;
+        }
+        else if (resultMsg.includes("lose")) {
+            compuerScore++;
+        }
+        console.log("| Player score: " + playerScore);
+        console.log("| Computer score " + compuerScore);
+    }
+    if (playerScore < compuerScore) {
+        console.log("The computer wins...")
+    }
+    else if (playerScore > compuerScore) {
+        console.log("You win! Congratulations!")
+    }
+    else {
+        console.log("It's a tie.")
+    }
+}
