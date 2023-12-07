@@ -37,8 +37,8 @@ function testComputerChoice () {
 function playRound (playerSelection, computerSelection) {
     playerSelection = playerSelection.toUpperCase();
     computerSelection = computerSelection.toUpperCase();
-    console.log("Player chose " + playerSelection);
-    console.log("Computer chose " + computerSelection);
+    document.querySelector("#playerDisplay").textContent = "Player chose " + playerSelection;
+    document.querySelector("#computerDisplay").textContent = "Computer chose " + computerSelection;
 
     if (playerSelection == "ROCK") {
         if (computerSelection == "ROCK") {
@@ -112,6 +112,6 @@ buttons.forEach(function (button) {
         let playerSelection = e.target.innerHTML;
         let computerSelection = getComputerChoice();
         let result = playRound(playerSelection, computerSelection);
-        console.log(result);
+        document.querySelector("#resultDisplay").textContent = result;
     });
 });
