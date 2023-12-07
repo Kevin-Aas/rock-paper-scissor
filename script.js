@@ -37,8 +37,8 @@ function testComputerChoice () {
 function playRound (playerSelection, computerSelection) {
     playerSelection = playerSelection.toUpperCase();
     computerSelection = computerSelection.toUpperCase();
-    document.querySelector("#playerDisplay").textContent = "Player chose " + playerSelection;
-    document.querySelector("#computerDisplay").textContent = "Computer chose " + computerSelection;
+    document.querySelector("#playerchoice").textContent = "Player chose " + playerSelection;
+    document.querySelector("#computerchoice").textContent = "Computer chose " + computerSelection;
 
     if (playerSelection == "ROCK") {
         if (computerSelection == "ROCK") {
@@ -76,11 +76,9 @@ function playRound (playerSelection, computerSelection) {
 }
 
 function game() {
-    console.log("Welcome to the game of Rock Paper Scissor!")
     let playerScore = 0;
     let compuerScore = 0;
     //for (i=0; i<5; i++) {
-        let playerSelection = prompt("Do you choose Rock, Paper or Scissor?");
         let computerSelection = getComputerChoice();
         let resultMsg = playRound(playerSelection, computerSelection);
         if (resultMsg.includes("win")) {
@@ -102,6 +100,9 @@ function game() {
         console.log("It's a tie.")
     }
 }
+// set up scores:
+playerScore = 0;
+computerScore = 0;
 
 // get all buttons:
 let buttons = document.querySelectorAll('button');
@@ -111,7 +112,22 @@ buttons.forEach(function (button) {
     button.addEventListener('click', function (e) {
         let playerSelection = e.target.innerHTML;
         let computerSelection = getComputerChoice();
-        let result = playRound(playerSelection, computerSelection);
-        document.querySelector("#resultDisplay").textContent = result;
+        let resultMsg = playRound(playerSelection, computerSelection);
+        // document.querySelector("#resultDisplay").textContent = resultMsg;
+        // count scores:
+        if (resultMsg.includes("win")) {
+            playerScore++;
+        }
+        else if (resultMsg.includes("lose")) {
+            computerScore++;
+        }
+        document.querySelector("#playerscore").textContent = playerScore;
+        document.querySelector("#computerscore").textContent = computerScore;
+        if (playerScore > 4) {
+            document.querySelector("#winnertext").textContent = "The player wins!";
+        }
+        else if (computerScore > 4) {
+            document.querySelector("#winnertext").textContent = "The computer wins...";
+        }
     });
 });
