@@ -110,24 +110,31 @@ let buttons = document.querySelectorAll('button');
 // set event listener for each button:
 buttons.forEach(function (button) {
     button.addEventListener('click', function (e) {
-        let playerSelection = e.target.innerHTML;
-        let computerSelection = getComputerChoice();
-        let resultMsg = playRound(playerSelection, computerSelection);
-        // document.querySelector("#resultDisplay").textContent = resultMsg;
-        // count scores:
-        if (resultMsg.includes("win")) {
-            playerScore++;
-        }
-        else if (resultMsg.includes("lose")) {
-            computerScore++;
-        }
-        document.querySelector("#playerscore").textContent = playerScore;
-        document.querySelector("#computerscore").textContent = computerScore;
-        if (playerScore > 4) {
-            document.querySelector("#winnertext").textContent = "The player wins!";
-        }
-        else if (computerScore > 4) {
-            document.querySelector("#winnertext").textContent = "The computer wins...";
+        if (playerScore < 5 && computerScore < 5) {
+            let playerSelection = e.target.innerHTML;
+            let computerSelection = getComputerChoice();
+            let resultMsg = playRound(playerSelection, computerSelection);
+            // document.querySelector("#resultDisplay").textContent = resultMsg;
+            // count scores:
+                if (resultMsg.includes("win")) {
+                    document.querySelector("#comparer").textContent = ">";
+                    playerScore++;
+                }
+                else if (resultMsg.includes("lose")) {
+                    document.querySelector("#comparer").textContent = "<";
+                    computerScore++;
+                }
+                else {
+                    document.querySelector("#comparer").textContent = "=";
+                }
+            document.querySelector("#playerscore").textContent = playerScore;
+            document.querySelector("#computerscore").textContent = computerScore;
+            if (playerScore > 4) {
+                document.querySelector("#winnertext").textContent = "You Won!";
+            }
+            else if (computerScore > 4) {
+                document.querySelector("#winnertext").textContent = "You Lost";
+            }
         }
     });
 });
