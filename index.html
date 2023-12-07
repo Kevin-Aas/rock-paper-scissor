@@ -7,23 +7,32 @@
         <script src="./script.js" defer></script>
     </head>
     <body>
-        <div class="button_section">
-            <button class="rpc_button">ROCK</button>
-            <button class="rpc_button">PAPER</button>
-            <button class="rpc_button">SCISSOR</button>
-        </div>
-        <div>
-            <div id="playerchoice"></div>
-            <div id="computerchoice"></div>
-            <div>
-                Player score:
-                <div id="playerscore"></div>
+        <div class="main_card">
+            <div class="button_section">
+                <button class="rpc_button">ROCK</button>
+                <button class="rpc_button">PAPER</button>
+                <button class="rpc_button">SCISSOR</button>
+            </div>
+            <div class="player_computer">
+                <div class="choice">
+                    <h3>Player</h3>
+                    <div id="playerchoice">none</div>
+                </div>
+                <div class="choice">
+                    <h3>Computer</h3>
+                    <div id="computerchoice">none</div>
+                </div>
             </div>
             <div>
-                Computer score:
-                <div id="computerscore"></div>
+                <h3>Score</h3>
             </div>
-            <div id="winnertext"></div>
+            <div class="scores">
+                <div id="playerscore">0</div>
+                <div id="computerscore">0</div>
+            </div>
+            <div>
+                <div id="winnertext"></div>
+            </div>
         </div>
     </body>
 </html>

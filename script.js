@@ -37,8 +37,8 @@ function testComputerChoice () {
 function playRound (playerSelection, computerSelection) {
     playerSelection = playerSelection.toUpperCase();
     computerSelection = computerSelection.toUpperCase();
-    document.querySelector("#playerchoice").textContent = "Player chose " + playerSelection;
-    document.querySelector("#computerchoice").textContent = "Computer chose " + computerSelection;
+    document.querySelector("#playerchoice").textContent = playerSelection;
+    document.querySelector("#computerchoice").textContent = computerSelection;
 
     if (playerSelection == "ROCK") {
         if (computerSelection == "ROCK") {
