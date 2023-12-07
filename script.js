@@ -79,7 +79,7 @@ function game() {
     console.log("Welcome to the game of Rock Paper Scissor!")
     let playerScore = 0;
     let compuerScore = 0;
-    for (i=0; i<5; i++) {
+    //for (i=0; i<5; i++) {
         let playerSelection = prompt("Do you choose Rock, Paper or Scissor?");
         let computerSelection = getComputerChoice();
         let resultMsg = playRound(playerSelection, computerSelection);
@@ -91,7 +91,7 @@ function game() {
         }
         console.log("| Player score: " + playerScore);
         console.log("| Computer score " + compuerScore);
-    }
+    //}
     if (playerScore < compuerScore) {
         console.log("The computer wins...")
     }
@@ -102,3 +102,16 @@ function game() {
         console.log("It's a tie.")
     }
 }
+
+// get all buttons:
+let buttons = document.querySelectorAll('button');
+
+// set event listener for each button:
+buttons.forEach(function (button) {
+    button.addEventListener('click', function (e) {
+        let playerSelection = e.target.innerHTML;
+        let computerSelection = getComputerChoice();
+        let result = playRound(playerSelection, computerSelection);
+        console.log(result);
+    });
+});
